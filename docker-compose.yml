@@ -1,0 +1,53 @@
+--- 
+services: 
+  kafka: 
+    depends_on: 
+      - zookeeper
+    environment: 
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://localhost:9092"
+      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092"
+      KAFKA_ZOOKEEPER_CONNECT: "localhost:2181"
+    hostname: localhost
+    image: wurstmeister/kafka
+    network_mode: host
+    ports: 
+      - "9092:9092"
+    restart: always
+  zookeeper: 
+    hostname: localhost
+    image: wurstmeister/zookeeper
+    network_mode: host
+    ports: 
+      - "2181:2181"
+    restart: always
+  spring-produce: 
+    build: kafkaproducerdemo/
+    depends_on:
+      - kafka
+    image: spring-proimage
+    network_mode: host
+    ports: 
+      - "8084:8084"
+    expose:
+      - 8084
+    restart: always
+  spring-consumer: 
+    build: kafkaconsumerdemo/
+    depends_on:
+      - kafka
+    image: spring-conimage
+    network_mode: host
+    ports: 
+      - "8081:8081"
+    expose:
+      - 8081
+    restart: always
+version: "3.0"
+
+
+
+
+
+
+
+
