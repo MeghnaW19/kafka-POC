@@ -13,7 +13,7 @@
     <bytecodeTargetLevel>
       <module name="Demo" target="11" />
       <module name="kafkaconsumerdemo" target="11" />
-      <module name="kafkaproducerdemo" target="10" />
+      <module name="kafkaproducerdemo" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
