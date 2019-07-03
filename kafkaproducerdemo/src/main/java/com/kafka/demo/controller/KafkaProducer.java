@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/kafka")
+@RequestMapping("/api/v1")
 public class KafkaProducer {
 //We need to serialize the user object as kafka by defaults works for String object
 
@@ -23,9 +23,9 @@ public class KafkaProducer {
 
     private static String TOPIC="java_topic";
 
-    @GetMapping("/publish/{name}")
+    @GetMapping("/user/{name}")
     public String post(@PathVariable("name") final String name){
-//kafkatemplete will send msg to topic the particular msg
+    //kafkatemplete will send msg to topic the particular msg
 
         kafkaTemplate.send(TOPIC,new User(26,name,"password"));
         return "Published Successfully";

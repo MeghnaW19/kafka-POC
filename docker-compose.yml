@@ -1,4 +1,5 @@
---- 
+---
+version: "3.0"
 services: 
   kafka: 
     depends_on: 
@@ -13,6 +14,7 @@ services:
     ports: 
       - "9092:9092"
     restart: always
+
   zookeeper: 
     hostname: localhost
     image: wurstmeister/zookeeper
@@ -20,29 +22,31 @@ services:
     ports: 
       - "2181:2181"
     restart: always
+
   spring-produce: 
     build: kafkaproducerdemo/
     depends_on:
       - kafka
-    image: spring-proimage
+    image: kafka-producer
     network_mode: host
     ports: 
       - "8084:8084"
     expose:
       - 8084
     restart: always
+
   spring-consumer: 
     build: kafkaconsumerdemo/
     depends_on:
       - kafka
-    image: spring-conimage
+    image: kafka-consumer
     network_mode: host
     ports: 
       - "8081:8081"
     expose:
       - 8081
     restart: always
-version: "3.0"
+
 
 
 

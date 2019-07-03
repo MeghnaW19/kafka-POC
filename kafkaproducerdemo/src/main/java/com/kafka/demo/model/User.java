@@ -5,9 +5,11 @@ public class User {
 
     int id;
     String name;
-public User(){
+    String password;
 
-}
+    public User(){
+
+    }
 
     public int getId() {
         return id;
@@ -38,8 +40,6 @@ public User(){
         this.name = name;
         this.password = password;
     }
-
-    String password;
 
 
 }
