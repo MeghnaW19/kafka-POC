@@ -18,7 +18,7 @@ public class KafkaProducer {
 
     }
 
-    private static String TOPIC="java_topic";
+    private static String TOPIC="kafka_json";
 
     @GetMapping("/user/{name}")
     public String post(@PathVariable("name") final String name){
