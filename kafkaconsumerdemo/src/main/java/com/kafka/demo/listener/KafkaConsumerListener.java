@@ -24,7 +24,7 @@
 
 package com.kafka.demo.listener;
 
-import com.kafka.demo.model.User;
+import com.kafka.demo.domain.User;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
